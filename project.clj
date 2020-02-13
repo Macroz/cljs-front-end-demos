@@ -35,7 +35,8 @@
                            :pretty-print false}}]}
 
   :figwheel {:css-dirs ["resources/public/css"]
-             :ring-handler cljs-front-end-demos.handler/handler}
+             :ring-handler cljs-front-end-demos.handler/handler
+             :server-port 3450}
 
 
   :profiles {:dev {:dependencies [[binaryage/devtools "1.0.0"]
