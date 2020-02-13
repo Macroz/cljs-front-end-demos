@@ -21,7 +21,7 @@
   (.pushState (.-history js/window) (clj->js @state-navigation) name path))
 
 (defn container-link [path name]
-  [:div.mh1
+  [:div.mh1.mb05.text-overflow
    [:a.text-uppercase
     {:href ""
      :class (when (= path @state-navigation) "selected")
@@ -31,7 +31,7 @@
     name]])
 
 (defn view-navigation []
-  [:div.w100.min-narrow.flex-row.justify-around.p1
+  [:div.flex-row.flex-wrap.p1
    [container-link "/" "Home"]
    [container-link "/reagent/counter" "Counter"]
    [container-link "/reagent/todo" "Reagent To-do App"]
@@ -42,17 +42,19 @@
         children))
 
 (defn panel-home []
-  [view-center
-   [:div.w100.min-narrow.p2.mt4
-    [:h1.mb1 "ClojureScript Front-end Demos"]
-    [:p "Here are self-contained ClojureScript front-end demos including:"
+  [:div.w100.p2
+   [view-center
+    [:div.mt2.overflow-hidden
+     [:h1.mb1 "ClojureScript Front-end Demos"]
+
+     [:p "Here are self-contained ClojureScript front-end demos including:"]
      [:ul
       [:li "Reagent and re-frame for state handling,"]
       [:li "styling using CSS, reusable components and utility classes,"]
       [:li "useful greppable naming conventions and"]
-      [:li "browser location and history management."]]]
+      [:li "browser location and history management."]]
 
-    [:p "Future may include:"
+     [:p "Future may include:"]
      [:ul
       [:li "iteration on the patterns,"]
       [:li "documentation practices,"]
@@ -63,9 +65,9 @@
       [:li "offline support,"]
       [:li "distributed data handling,"]
       [:li "responsive design and"]
-      [:li "SSR, PWA, A11Y, L18N…"]]]
+      [:li "SSR, PWA, A11Y, L18N…"]]
 
-    [:p "Contact " [:a {:href "http://markku.rontu.net/"} "Markku Rontu"]]]])
+     [:p "Contact: " [:a {:href "http://markku.rontu.net/"} "Markku Rontu"]]]]])
 
 (defn container-root []
   [:div.w100

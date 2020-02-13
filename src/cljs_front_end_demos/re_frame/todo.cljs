@@ -141,7 +141,7 @@
                               (on-change checked?)))]
     [:span.lh100.va-m.fs150 {:id (when id id)
                              :class class
-                             :tabIndex (or tab-index 0)
+                             :tab-index (or tab-index 0)
                              :role :checkbox
                              :aria-checked checked?
                              :aria-label (if checked? "checked" "unchecked")
@@ -167,18 +167,19 @@
      [:td.view-todo--state.w7.text-center.pointer {:on-click on-toggle-todo}
       [view-checkbox {:checked? (:done? todo) :on-change toggle-todo}]]
      [:td.view-todo--text.pr1 {:on-click on-start-editing}
-      [:input.w100 {:id todo-input-id
-                    :value (:text todo)
-                    :on-key-press (fn [event]
-                                    (when (= 13 (.-which event))
-                                      (.preventDefault event)
-                                      (let [next-element-id (str "rg-todo-input-" next-todo-id)
-                                            next-element (.getElementById js/document next-element-id)]
-                                        (when next-element
-                                          (doto next-element
-                                            (.focus)
-                                            (.select))))))
-                    :on-change on-change}]]]))
+      [:input.w100.text-overflow
+       {:id todo-input-id
+        :value (:text todo)
+        :on-key-press (fn [event]
+                        (when (= 13 (.-which event))
+                          (.preventDefault event)
+                          (let [next-element-id (str "rg-todo-input-" next-todo-id)
+                                next-element (.getElementById js/document next-element-id)]
+                            (when next-element
+                              (doto next-element
+                                (.focus)
+                                (.select))))))
+        :on-change on-change}]]]))
 
 (defn container-todo [todo-id]
   [view-todo
@@ -237,18 +238,18 @@
    [:table.w100
     [:thead
      [:tr
-      [:th.sticky.t8.mt2.bgw.bb2.fs125.pointer.w7 {:on-click #(sort-todos-by :done?)}
+      [:th.sticky.t11.mt2.bgw.bb2.fs125.pointer.w7 {:on-click #(sort-todos-by :done?)}
        "Status" [sort-indicator :done?]]
-      [:th.sticky.t8.mt2.bgw.bb2.fs125.pointer {:on-click #(sort-todos-by :text)}
-       [:div.flex-row
-        [:div.text-left
+      [:th.sticky.t11.mt2.bgw.bb2.fs125.pointer.minw0.maxw0 {:on-click #(sort-todos-by :text)}
+       [:div.flex-row.align-end.justify-between
+        [:div.va-b.text-left
          "Description" [sort-indicator :text]]
-        [:div.flex1.text-right [items-to-do]]]]]]
+        [:div.va-b.text-right.text-overflow [items-to-do]]]]]]
     [:tbody (mapck todo-component
                    identity
                    todo-ids)]
     [:tfoot
-     [:tr [:th.bt2 {:colspan 2}]]]]])
+     [:tr [:th.bt2 {:col-span 2}]]]]])
 
 (defn container-todos []
   [view-todos
@@ -263,8 +264,8 @@
 
 (defn app-todo []
   [:div.m2
-   [:header.sticky.t0.mt2.bgw [view-app-title]]
-   [:header.sticky.t3.mt2.bgw [container-add-todo]]
+   [:header.sticky.t0.mt2.pt1.bgw [view-app-title]]
+   [:header.sticky.t4.mt2.pt1.bgw [container-add-todo]]
    [container-todos]])
 
 ;;; Demo

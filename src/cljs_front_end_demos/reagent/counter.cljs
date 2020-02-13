@@ -8,14 +8,15 @@
   (into [:h1] texts))
 
 (defn view-counter [count]
-  [view-title "Counter" [:div.inline-block.ml1.w5.fg-gray count]])
+  [view-title "Counter " [:div.inline-block.w5.fg-gray count]])
 
 (defn subscribe-counter-value []
   (get-in @state-counter [:counter :value] 0))
 
 (defn action-increase-counter []
-  (swap! state-counter (fn [state-counter]
-                     (update-in state-counter [:counter :value] inc))))
+  (swap! state-counter
+         (fn [state-counter]
+           (update-in state-counter [:counter :value] inc))))
 
 (defn view-center [& children]
   (into [:div.w100.h100.flex-row.align-center.justify-center]
