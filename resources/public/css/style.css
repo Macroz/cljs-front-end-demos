@@ -1,0 +1,367 @@
+/* Utility */
+.w2 { width: 2rem; }
+.w5 { width: 5rem; }
+.w6 { width: 6rem; }
+.w7 { width: 7rem; }
+
+.w10 { width: 10%; }
+.w50 { width: 50%; }
+.w100 { width: 100%; }
+
+.b1 { border: 1px solid #333; }
+.b2 { border: 2px solid #333; }
+
+.bt1 { border-top: 1px solid #333; }
+.bt2 { border-top: 2px solid #333; }
+
+.bb1 { border-bottom: 1px solid #333; }
+.bb2 { border-bottom: 2px solid #333; }
+
+.bgw {
+    background-color: #f8f8f8;
+}
+
+.flex-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.flex-col {
+    display: flex;
+    flex-direction: column;
+}
+
+.inline-block {
+    display: inline-block;
+}
+
+.flex1 {
+    flex: 1;
+}
+
+.align-center {
+    align-items: center;
+}
+
+.align-end {
+    align-items: flex-end;
+}
+
+.justify-around {
+    justify-content: space-around;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.justify-end {
+    justify-content: flex-end;
+}
+
+.t0 { top: 0; }
+.t1 { top: 1rem; }
+.t2 { top: 2rem; }
+.t3 { top: 3rem; }
+.t4 { top: 4rem; }
+.t5 { top: 5rem; }
+.t6 { top: 6rem; }
+.t7 { top: 7rem; }
+.t8 { top: 8rem; }
+
+.m1 { margin: 1rem; }
+.m2 { margin: 2rem; }
+.m3 { margin: 3rem; }
+.m4 { margin: 4rem; }
+
+.mt05 { margin-top: 0.5rem; }
+.mt1 { margin-top: 1rem; }
+.mt2 { margin-top: 2rem; }
+.mt3 { margin-top: 3rem; }
+.mt4 { margin-top: 4rem; }
+
+.mh1 { margin-left: 1rem; margin-right: 1rem; }
+
+.ml1 { margin-left: 1rem; }
+.ml2 { margin-left: 2rem; }
+
+.mr1 { margin-right: 1rem; }
+.mr2 { margin-right: 2rem; }
+
+.mb1 { margin-bottom: 1rem; }
+.mb2 { margin-bottom: 2rem; }
+.mb4 { margin-bottom: 4rem; }
+
+.min-narrow { max-width: 1000px }
+.min-wide { max-width: 1600px; }
+
+.p05 { padding: 0.5rem; }
+.p1 { padding: 1rem; }
+.p2 { padding: 2rem; }
+
+.ph05 {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+}
+.ph1 {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.pv05 { padding-top: 0.5rem; padding-bottom: 0.5rem; }
+.pv1 { padding-top: 1rem; padding-bottom: 1rem; }
+.pv2 { padding-top: 2rem; padding-bottom: 2rem; }
+
+.pb1 { padding-bottom: 1rem; }
+.pb2 { padding-bottom: 2rem; }
+
+.pr1 {
+    padding-right: 1rem;
+}
+
+.ib {
+    display: inline-block
+}
+
+.z1 {
+    z-index: 1;
+}
+
+.z2 {
+    z-index: 2;
+}
+
+.z3 {
+    z-index: 3;
+}
+
+.h2 { height: 2rem; }
+.h4 { height: 4rem; }
+.h6 { height: 6rem; }
+
+.h10 { height: 10%; }
+.h100 { height: 100%; }
+
+.lh100 {
+    line-height: 100%;
+}
+
+.va-m {
+    vertical-align: middle;
+}
+
+.va-b {
+    vertical-align: bottom;
+}
+
+.text-right { text-align: right; }
+.text-left { text-align: left; }
+.text-center { text-align: center; }
+.text-smallcaps { font-variant: small-caps; }
+.text-uppercase { text-transform: uppercase; }
+
+.pointer {
+    cursor: pointer;
+}
+
+.fixed {
+    position: fixed;
+}
+
+.sticky {
+    position: sticky;
+}
+
+.fs150 {
+    font-size: 150%;
+}
+
+.fs125 {
+    font-size: 125%;
+}
+
+.fwb {
+    font-weight: bold;
+}
+
+.fg-gray {
+    color: grayy;
+}
+
+
+/* Base */
+table {
+    border-spacing: 0;
+}
+
+td, th {
+    margin: 0;
+    padding: 0.5rem 0;
+    padding-right: 1rem;
+}
+
+td {
+    border-top: 2px solid transparent;
+    border-bottom: 2px solid transparent;
+}
+
+tr {
+    height: 2rem;
+}
+
+html {
+    background-color: #f8f8f8;
+    color: #333;
+}
+
+html, input {
+    font-family: Lato;
+    font-size: 24px;
+}
+
+a, a:active, a:visited, a:hover {
+    text-decoration: none;
+}
+
+a {
+    color: #333;
+    position: relative;
+}
+
+a::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    bottom: -0.25rem;
+    left: -0.125rem;
+    right: -0.125rem;
+    border: 0.175rem solid #ccc;
+}
+
+a:hover::after, a.selected::after {
+    border-color: #c2e4f6;
+}
+
+label {
+    font-weight: bold;
+}
+
+input {
+    border: none;
+    background-color: #f8f8f8;
+    margin: 0;
+    color: inherit;
+    line-height: 1rem;
+    padding: 0.5rem 0;
+    border-bottom: 2px solid #f0f0f0;
+}
+
+input:focus {
+    background-color: #fff;
+}
+
+@keyframes blink {
+    50% { border-color: #ccc; }
+}
+
+textarea:focus, input:focus, span[role=checkbox]:focus {
+    outline: none;
+    border-bottom: 2px solid #333;
+}
+
+button:focus, button:active {
+    outline: none;
+}
+
+button span {
+    border-bottom: 2px solid transparent;
+}
+
+button:focus span, button:hover span, button:active span {
+    border-bottom: 2px solid #333;
+}
+
+::selection {
+    background-color: #c2e3f6;
+}
+
+tr:hover > td,
+tr:hover input:not(:focus),
+.container-add-todo--input-wrapper:hover:not(:focus-within),
+.container-add-todo--input-wrapper:hover input:not(:focus) {
+    background-color: #c2e3f6;
+    border-bottom: 2px solid transparent;
+}
+
+.container-add-todo--input-wrapper {
+    border-top: 2px solid transparent;
+    border-bottom: 2px solid transparent;
+}
+
+.container-add-todo--input-wrapper:focus-within {
+    border-top: 2px solid #333;
+    border-bottom: 2px solid #333;
+}
+
+tr:focus-within td, .container-add-todo--input-wrapper:focus-within {
+    background-color: #fff;
+}
+
+tr:focus-within:not(:first-child):not(:last-child) td {
+    border-top: 2px solid #333;
+    border-bottom: 2px solid #333;
+}
+
+tr:focus-within:first-child td {
+    border-bottom: 2px solid #333;
+}
+
+tr:focus-within:last-child td {
+    border-top: 2px solid #333;
+}
+
+.container-add-todo--input-wrapper:focus-within {
+    cursor: text;
+    color: #333;
+}
+
+.done {
+    color: #ccc;
+}
+
+.btn {
+    display: inline-block;
+    letter-spacing: 0.0625rem;
+    line-height: 1rem;
+    padding: 0.5rem 1rem;
+    text-transform: uppercase;
+}
+
+.btn-primary {
+    background-color: #fff;
+    color: #333;
+    border: 2px solid #333;
+}
+
+.btn-primary:hover, .btn-primary:active {
+    background-color: #c2e3f6;
+}
+
+.btn-primary.btn-primary--disabled, .btn-primary.btn-primary--disabled:hover, .btn-primary.btn-primary--disabled:active {
+    background-color: #fff;
+    border-color: #ccc;
+    color: #ccc;
+}
+.btn-primary.btn-primary--disabled:hover:not(:focus-within) span {
+    border-bottom: 2px solid transparent;
+}
+
+.btn-secondary {
+    background-color: #ccc;
+    color: #333;
+    border: 2px solid #333;
+}
+
+.btn-secondary:hover, .btn-secondary:active {
+    background-color: #c2e3f6;
+}
