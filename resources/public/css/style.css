@@ -33,15 +33,29 @@
     flex-direction: column;
 }
 
+.flex-col {
+    display: flex;
+    flex-direction: column;
+}
+
 .flex-wrap { flex-wrap: wrap; }
 
 .inline-block {
     display: inline-block;
 }
 
-.flex1 {
-    flex: 1;
-}
+.flex0 { flex: 0; }
+.flex1 { flex: 1; }
+.flex2 { flex: 2; }
+.flex3 { flex: 3; }
+
+.flex-g0 { flex-grow: 0; }
+.flex-g1 { flex-grow: 1; }
+.flex-g2 { flex-grow: 2; }
+
+.flex-s0 { flex-shrink: 0; }
+.flex-s1 { flex-shrink: 1; }
+.flex-s2 { flex-shrink: 2; }
 
 .align-stretch { align-items: stretch; }
 .align-center { align-items: center; }
@@ -70,6 +84,7 @@
 .t11 { top: 11rem; }
 .t12 { top: 12rem; }
 
+.m0 { margin: 0; }
 .m1 { margin: 1rem; }
 .m2 { margin: 2rem; }
 .m3 { margin: 3rem; }
@@ -82,6 +97,14 @@
 .mt4 { margin-top: 4rem; }
 
 .mh1 { margin-left: 1rem; margin-right: 1rem; }
+.mh2 { margin-left: 2rem; margin-right: 2rem; }
+.mh3 { margin-left: 3rem; margin-right: 3rem; }
+.mh4 { margin-left: 4rem; margin-right: 4rem; }
+
+.mv1 { margin-top: 1rem; margin-bottom: 1rem; }
+.mv2 { margin-top: 2rem; margin-bottom: 2rem; }
+.mv3 { margin-top: 3rem; margin-bottom: 3rem; }
+.mv4 { margin-top: 4rem; margin-bottom: 4rem; }
 
 .ml1 { margin-left: 1rem; }
 .ml2 { margin-left: 2rem; }
@@ -100,6 +123,7 @@
 .max-narrow { max-width: 1000px }
 .min-wide { max-width: 1600px; }
 
+.p0 { padding: 0; }
 .p05 { padding: 0.5rem; }
 .p1 { padding: 1rem; }
 .p2 { padding: 2rem; }
@@ -125,6 +149,9 @@
 
 .pr1 { padding-right: 1rem; }
 .pr2 { padding-right: 2rem; }
+
+.cp05 > * { padding: 0.5rem; }
+.cp1 > * { padding: 1rem; }
 
 .ib {
     display: inline-block
@@ -169,9 +196,7 @@
 .text-overflow { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .text-nowrap { white-space: nowrap; }
 
-.pointer {
-    cursor: pointer;
-}
+.pointer { cursor: pointer; }
 
 .fixed {
     position: fixed;
@@ -181,21 +206,16 @@
     position: sticky;
 }
 
-.fs150 {
-    font-size: 150%;
-}
-
-.fs125 {
-    font-size: 125%;
-}
+.fs80 { font-size: 80%; }
+.fs125 { font-size: 125%; }
+.fs150 { font-size: 150%; }
 
 .fwb {
     font-weight: bold;
 }
 
-.fg-gray {
-    color: gray;
-}
+.fg-gray { color: gray; }
+.fg-lightgray { color: lightgray; }
 
 
 /* Base */

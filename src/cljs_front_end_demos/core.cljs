@@ -1,6 +1,7 @@
 (ns cljs-front-end-demos.core
   (:require [reagent.core :as reagent]
             [cljs-front-end-demos.reagent.counter]
+            [cljs-front-end-demos.reagent.temperature]
             [cljs-front-end-demos.reagent.todo]
             [cljs-front-end-demos.re-frame.todo]))
 
@@ -34,6 +35,7 @@
   [:div.flex-row.flex-wrap.p1
    [container-link "/" "Home"]
    [container-link "/reagent/counter" "Counter"]
+   [container-link "/reagent/temperature" "Temperature"]
    [container-link "/reagent/todo" "Reagent To-do App"]
    [container-link "/re-frame/todo" "re-frame To-do App"]])
 
@@ -74,6 +76,7 @@
    [view-navigation]
    (case @state-navigation
      "/reagent/counter" [cljs-front-end-demos.reagent.counter/app-counter]
+     "/reagent/temperature" [cljs-front-end-demos.reagent.temperature/app-temperature]
      "/reagent/todo" [cljs-front-end-demos.reagent.todo/app-todo]
      "/re-frame/todo" [cljs-front-end-demos.re-frame.todo/app-todo]
      "/" [panel-home])])

@@ -1,4 +1,6 @@
-(ns cljs-front-end-demos.util)
+(ns cljs-front-end-demos.util
+  (:require [goog.string :as gstring])
+  (:import [goog.async Debouncer]))
 
 (def conjv
   "Like `conj` but defaults to a vector for nil."
@@ -25,3 +27,18 @@
   Same as into but arguments are reversed."
   [coll xs]
   (into xs coll))
+
+(defn debounce
+  "Debounces the given `f` with the `interval`.
+
+  No more than one call will be done within the interval."
+  [f interval]
+  (let [devounce (Debouncer. f interval)]
+    (fn [& args] (.apply (.-fire devounce) devounce (to-array args)))))
+
+(defn format
+  "Formats a string using goog.string.format.
+
+  (format \"Cost: %.2f\" 10.0234)"
+  [fmt & args]
+  (apply gstring/format fmt args))
