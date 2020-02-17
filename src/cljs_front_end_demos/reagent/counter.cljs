@@ -24,7 +24,7 @@
 
 (defn app-counter []
   (let [counter-value (subscribe-counter-value)
-        on-click (fn [event] (action-increase-counter))]
+        on-click (fn [_event] (action-increase-counter))]
     [view-center
      [:div.m2.flex-row
       [view-counter counter-value]
