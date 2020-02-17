@@ -1,6 +1,5 @@
 (ns cljs-front-end-demos.reagent.counter
-  (:require [reagent.core :as reagent]
-            [clojure.string :as str]))
+  (:require [reagent.core :as reagent]))
 
 (defonce state-counter (reagent/atom nil))
 
