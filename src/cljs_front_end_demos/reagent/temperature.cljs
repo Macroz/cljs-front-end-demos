@@ -120,7 +120,7 @@
 (defn app-temperature []
   [view-center
    [:div.flex-column.align-start.justify-start
-    [:h1.mv2 "Temperature converter"]
+    [:h1.mv2 "Temperature Converter"]
     [view-temperature-input {:id :celcius
                              :name "Celcius"
                              :value @(subscribe-celcius)

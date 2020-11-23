@@ -3,6 +3,8 @@
 .w5 { width: 5rem; }
 .w6 { width: 6rem; }
 .w7 { width: 7rem; }
+.w8 { width: 8rem; }
+.w9 { width: 9rem; }
 
 .w10 { width: 10%; }
 .w50 { width: 50%; }
@@ -48,6 +50,8 @@
 .flex1 { flex: 1; }
 .flex2 { flex: 2; }
 .flex3 { flex: 3; }
+
+.flex-c1 > * { flex: 1; }
 
 .flex-g0 { flex-grow: 0; }
 .flex-g1 { flex-grow: 1; }
@@ -175,10 +179,15 @@
 
 .h10 { height: 10%; }
 .h100 { height: 100%; }
+.h500 { height: 500px; }
+.h1000 { height: 1000px; }
 
-.lh100 {
-    line-height: 100%;
-}
+.lh100 { line-height: 100%; }
+
+.lh1 { line-height: 1rem; }
+.lh2 { line-height: 2rem; }
+.lh3 { line-height: 3rem; }
+.lh4 { line-height: 4rem; }
 
 .va-m {
     vertical-align: middle;
@@ -248,6 +257,9 @@ html, body, #app {
     margin: 0;
 }
 
+#app {
+}
+
 html {
     background-color: #f8f8f8;
     color: #333;
@@ -265,6 +277,8 @@ a, a:active, a:visited, a:hover {
 a {
     color: #333;
     position: relative;
+    line-height: 2rem;
+    margin: 0 0.125rem;
 }
 
 a::after {
@@ -274,7 +288,7 @@ a::after {
     bottom: -0.25rem;
     left: -0.125rem;
     right: -0.125rem;
-    border: 0.175rem solid #ccc;
+    border-bottom: 0.25rem solid #ccc;
 }
 
 a:hover::after, a.selected::after {

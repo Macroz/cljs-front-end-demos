@@ -1,7 +1,10 @@
 (ns cljs-front-end-demos.core
   (:require [reagent.core :as reagent]
             [cljs-front-end-demos.reagent.counter]
+            [cljs-front-end-demos.reagent.counter-hooks]
             [cljs-front-end-demos.reagent.temperature]
+            [cljs-front-end-demos.reagent.flight-booker]
+            [cljs-front-end-demos.reagent.rolls]
             [cljs-front-end-demos.reagent.todo]
             [cljs-front-end-demos.re-frame.todo]))
 
@@ -21,11 +24,11 @@
   (reset! state-navigation path)
   (.pushState (.-history js/window) (clj->js @state-navigation) name path))
 
-(defn container-link [path name]
+(defn container-link [path name & [class]]
   [:div.mh1.mb05.text-overflow
    [:a.text-uppercase
     {:href ""
-     :class (when (= path @state-navigation) "selected")
+     :class [class (when (= path @state-navigation) "selected")]
      :on-click (fn [event]
                  (.preventDefault event)
                  (action-navigate-to path name))}
@@ -35,7 +38,10 @@
   [:div.flex-row.flex-wrap.p1
    [container-link "/" "Home"]
    [container-link "/reagent/counter" "Counter"]
+   [container-link "/reagent/counter-hooks" "Counter Hooks" :fg-lightgray]
    [container-link "/reagent/temperature" "Temperature"]
+   [container-link "/reagent/flight-booker" "Flight Booker" :fg-lightgray]
+   [container-link "/reagent/rolls" "Rolls" :fg-lightgray]
    [container-link "/reagent/todo" "Reagent To-do App"]
    [container-link "/re-frame/todo" "re-frame To-do App"]])
 
@@ -61,6 +67,7 @@
       [:li "iteration on the patterns,"]
       [:li "documentation practices,"]
       [:li "component guide,"]
+      [:li "form validation,"]
       [:li "backend integration,"]
       [:li "testing on different levels,"]
       [:li "progressive loading of content,"]
@@ -72,11 +79,14 @@
      [:p "Contact: " [:a {:href "http://markku.rontu.net/"} "Markku Rontu"]]]]])
 
 (defn container-root []
-  [:div.w100
+  [:<>
    [view-navigation]
    (case @state-navigation
      "/reagent/counter" [cljs-front-end-demos.reagent.counter/app-counter]
+     "/reagent/counter-hooks" [cljs-front-end-demos.reagent.counter-hooks/app-counter]
      "/reagent/temperature" [cljs-front-end-demos.reagent.temperature/app-temperature]
+     "/reagent/flight-booker" [cljs-front-end-demos.reagent.flight-booker/app-flight-booker]
+     "/reagent/rolls" [cljs-front-end-demos.reagent.rolls/app-rolls]
      "/reagent/todo" [cljs-front-end-demos.reagent.todo/app-todo]
      "/re-frame/todo" [cljs-front-end-demos.re-frame.todo/app-todo]
      "/" [panel-home])])

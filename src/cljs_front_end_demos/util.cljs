@@ -33,8 +33,8 @@
 
   No more than one call will be done within the interval."
   [f interval]
-  (let [devounce (Debouncer. f interval)]
-    (fn [& args] (.apply (.-fire devounce) devounce (to-array args)))))
+  (let [debounce (Debouncer. f interval)]
+    (fn [& args] (.apply (.-fire debounce) debounce (to-array args)))))
 
 (defn format
   "Formats a string using goog.string.format.
