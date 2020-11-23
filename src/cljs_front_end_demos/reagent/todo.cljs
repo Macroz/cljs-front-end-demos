@@ -30,8 +30,6 @@
 (defn get-sort [state]
   (::sort state))
 
-;;; Reducers, pure functions
-
 (defn set-todos [state todos]
   (assoc state
          ::todo-by-id (index-by :id todos)
@@ -45,6 +43,37 @@
 
 (defn set-sort [state sort]
   (assoc-in state [::sort] sort))
+
+(defn add-todos-texts [state texts]
+  (add-todos state (mapv make-todo texts)))
+
+(defn add-todo-text [state text]
+  (add-todos state [(make-todo text)]))
+
+(defn toggle-todo [state todo-id]
+  (update-in state [::todo-by-id todo-id :done?] not))
+
+(defn set-todo-text [state todo-id text]
+  (assoc-in state [::todo-by-id todo-id :text] text))
+
+(defn sort-todos-by [state k]
+  (let [{:keys [key dir]} (get-sort state)
+        dir (if (= k key)
+              (case dir
+                :asc :desc
+                :asc)
+              :asc)
+        sorted-todos (->> (get-todos state)
+                          (sort-by (comp str/lower-case str k)))
+        sorted-todos (if (= :asc dir)
+                       sorted-todos
+                       (reverse sorted-todos))]
+    (-> state
+        (set-todos sorted-todos)
+        (set-sort {:key k :dir dir}))))
+
+(defn set-add-todo-text [state text]
+  (assoc state ::add-todo-text text))
 
 ;;; State, the one atom
 
@@ -76,34 +105,22 @@
 ;;; Actions, modify state
 
 (defn action-add-todos [texts]
-  (swap! state-app add-todos (mapv make-todo texts)))
+  (swap! state-app add-todos-texts texts))
 
 (defn action-add-todo [text]
-  (swap! state-app add-todos [(make-todo text)]))
+  (swap! state-app add-todo-text text))
 
 (defn action-toggle-todo [todo-id]
-  (swap! state-app update-in [::todo-by-id todo-id :done?] not))
+  (swap! state-app toggle-todo todo-id))
 
 (defn action-set-todo-text [todo-id text]
-  (swap! state-app assoc-in [::todo-by-id todo-id :text] text))
+  (swap! state-app set-todo-text todo-id text))
 
 (defn action-sort-todos-by [k]
-  (let [{:keys [key dir]} @(subscribe-sort)
-        dir (if (= k key)
-              (case dir
-                :asc :desc
-                :asc)
-              :asc)
-        sorted-todos (->> @(subscribe-todos)
-                          (sort-by (comp str/lower-case str k)))
-        sorted-todos (if (= :asc dir)
-                       sorted-todos
-                       (reverse sorted-todos))]
-    (swap! state-app set-todos sorted-todos)
-    (swap! state-app set-sort {:key k :dir dir})))
+  (swap! state-app sort-todos-by k))
 
 (defn action-set-add-todo-text [text]
-  (swap! state-app assoc ::add-todo-text text))
+  (swap! state-app set-add-todo-text text))
 
 ;;; Components, view and container
 

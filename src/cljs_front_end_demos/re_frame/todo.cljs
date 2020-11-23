@@ -30,8 +30,6 @@
 (defn get-sort [state]
   (::sort state))
 
-;;; Reducers, pure functions
-
 (defn set-todos [state todos]
   (assoc state
          ::todo-by-id (index-by :id todos)
